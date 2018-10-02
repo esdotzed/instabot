@@ -28,7 +28,7 @@ def comment(self, media_id, comment_text):
 def comment_medias(self, medias):
     broken_items = []
     self.logger.info("Going to comment %d medias." % (len(medias)))
-    for media in tqdm(medias):
+    for media in medias:
         if not self.is_commented(media):
             text = self.get_comment()
             self.logger.info("Commented with text: %s" % text)
