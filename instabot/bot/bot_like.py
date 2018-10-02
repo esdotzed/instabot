@@ -49,7 +49,6 @@ def like_medias(self, medias):
         return broken_items
     self.logger.info("Going to like %d medias." % (len(medias)))
     for media in medias:
-        self.logger.info("Liking media {0}".format(media))
         if not self.like(media):
             self.error_delay()
             broken_items.append(media)
