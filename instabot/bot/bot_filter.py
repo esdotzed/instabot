@@ -65,8 +65,11 @@ def check_media(self, media_id):
             return False
 
         self.api.media_info(media_id)
-        if self.filter_medias(self.api.last_json["items"]):
-            return check_user(self, self.get_media_owner(media_id))
+        try:
+            if self.filter_medias(self.api.last_json["items"]):
+                return check_user(self, self.get_media_owner(media_id))
+        except:
+            return False
         return False
 
     msg = 'Media ID error!'
